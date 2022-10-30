@@ -5,3 +5,7 @@
   padding: 10px;
   box-shadow: 5px 7px 20px rgba(0, 0, 0, 0.2);
 }
+
+.App a {
+  color: white;
+}

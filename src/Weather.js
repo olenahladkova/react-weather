@@ -10,6 +10,7 @@ export default function Weather() {
   let [humidity, setHumidity] = useState();
   let [wind, setWind] = useState();
   let [icon, setIcon] = useState();
+  let [date, setDate] = useState();
 
   function handleChange(event) {
     setCity(event.target.value);
@@ -32,7 +33,19 @@ export default function Weather() {
     setIcon(
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+    setDate(response.data.dt);
   }
+
+  function formatDate(timestamp) {
+    const options = {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    };
+    return timestamp.toLocaleDateString("en-US", options);
+  };
 
   if (city) {
     return (
@@ -46,7 +59,8 @@ export default function Weather() {
                     icon={icon} 
                     description={description} 
                     humidity={humidity} 
-                    wind={wind}/>
+                    wind={wind}
+                    date={formatDate(new Date(date * 1000))}/>
       </div>
     );
   } else {
