@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Weather.css"
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather() {
   let [city, setCity] = useState();
@@ -34,28 +36,25 @@ export default function Weather() {
 
   if (city) {
     return (
-      <div>
+      <div className="Weather">
         <form onSubmit={handleSubmit}>
-          <input type="search" onChange={handleChange} />
-          <input type="submit" value="Search" />
+          <input type="search" className="form-control bg-transparent border shadow text-light search-form" onChange={handleChange} />
+          <input type="submit" className="form-control bg-transparent shadow text-light submit-button w-25" value="Search" />
         </form>
-        <ul>
-          <li>Temperature: {Math.round(temperature)}°C</li>
-          <li>Description: {description}</li>
-          <li>Humidity: {humidity}%</li>
-          <li>Wind: {wind}km/h</li>
-          <li>
-            <img src={icon} alt={description} />
-          </li>
-        </ul>
+        <WeatherInfo temperature={temperature} 
+                    city={city} 
+                    icon={icon} 
+                    description={description} 
+                    humidity={humidity} 
+                    wind={wind}/>
       </div>
     );
   } else {
     return (
-      <div>
+      <div className="Weather">
         <form onSubmit={handleSubmit}>
-          <input type="search" onChange={handleChange} />
-          <input type="submit" value="Search" />
+          <input type="search" placeholder="Choose city" className="search-form form-control bg-transparent border shadow text-light" onChange={handleChange} />
+          <input type="submit" className="submit-button form-control bg-transparent shadow text-light w-25" value="Search" />
         </form>
       </div>
     );

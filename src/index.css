@@ -1,9 +1,9 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  backdrop-filter: 10;
+  background-image: url('../public/sky-34536.png') !important;
+  background-size: cover;
 }
 
 code {

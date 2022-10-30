@@ -1,0 +1,8 @@
+.WeatherInfo li {
+    list-style: none;
+}
+
+.WeatherInfo ul {
+    margin-left: 10px;
+    padding-left: 0;
+}
