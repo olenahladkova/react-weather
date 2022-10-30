@@ -10,3 +10,9 @@
 .WeatherInfo h1 {
     text-transform: capitalize;
 }
+
+.units {
+    font-size: 12px;
+    position: relative;
+    top: -28px;
+}
