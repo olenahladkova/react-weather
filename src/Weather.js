@@ -13,6 +13,7 @@ export default function Weather() {
   let [date, setDate] = useState();
 
   function handleChange(event) {
+    event.preventDefault();
     setCity(event.target.value);
   }
 
@@ -47,7 +48,7 @@ export default function Weather() {
     return timestamp.toLocaleDateString("en-US", options);
   };
 
-  if (city) {
+  if (!isNaN(temperature)) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
