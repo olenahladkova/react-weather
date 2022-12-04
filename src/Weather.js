@@ -15,13 +15,15 @@ export default function Weather() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=79d53fa7da0455b822f6b2e41dca7be8&units=metric`;
+    const apiKey = '79d53fa7da0455b822f6b2e41dca7be8'
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(showTemperature);
   }
 
   function showTemperature(response) {
     setWeatherData({
       ready: true,
+      coord: response.data.coord,
       coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
@@ -59,7 +61,8 @@ export default function Weather() {
                     wind={weatherData.wind}
                     date={formatDate(new Date(weatherData.date * 1000))}/>
         <WeatherForecast icon={weatherData.icon}
-                         description={weatherData.description} />
+                         description={weatherData.description}
+                         coordinates={weatherData.coord} />
       </div>
     );
   } else {
