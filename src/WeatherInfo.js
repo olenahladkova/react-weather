@@ -8,7 +8,7 @@ export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="row d-flex justify-content-around p-2">
-        <div className="col-sm-6">
+        <div className="col-sm-6 ps-4">
           <h1>{props.city}</h1>
           <p>{props.date}</p>
           <WeatherTemperature celsius={props.temperature}/>
